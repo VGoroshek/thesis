@@ -1,0 +1,14 @@
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\bin\Debug\netcoreapp2.1\PSConsoleApp.deps.json
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\bin\Debug\netcoreapp2.1\PSConsoleApp.runtimeconfig.json
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\bin\Debug\netcoreapp2.1\PSConsoleApp.runtimeconfig.dev.json
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\bin\Debug\netcoreapp2.1\PSConsoleApp.dll
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\bin\Debug\netcoreapp2.1\PSConsoleApp.pdb
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\bin\Debug\netcoreapp2.1\PowerSetLibrary.dll
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\bin\Debug\netcoreapp2.1\PowerSetLibrary.pdb
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\obj\Debug\netcoreapp2.1\PSConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\obj\Debug\netcoreapp2.1\PSConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\obj\Debug\netcoreapp2.1\PSConsoleApp.AssemblyInfo.cs
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\obj\Debug\netcoreapp2.1\PSConsoleApp.csproj.CopyComplete
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\obj\Debug\netcoreapp2.1\PSConsoleApp.dll
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\obj\Debug\netcoreapp2.1\PSConsoleApp.pdb
+C:\Users\Kathy D\source\repos\PSConsoleApp\PSConsoleApp\obj\Debug\netcoreapp2.1\PSConsoleApp.csprojAssemblyReference.cache
