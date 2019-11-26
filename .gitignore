@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs
+/TestConsoleApp/bin/Debug/netcoreapp3.0
+/TestConsoleApp/obj

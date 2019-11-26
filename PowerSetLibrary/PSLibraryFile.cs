@@ -6,7 +6,7 @@ namespace PowerSetLibrary
         public class PSLibraryFile
         {
 
-            static T[][] FastPowerSet<T>(T[] seq)
+            public static T[][] FastPowerSet<T>(T[] seq)
             {
                 var powerSet = new T[1 << seq.Length][]; // двоичный размер множества всех подмножеств
                 powerSet[0] = new T[0]; // первый в любом случае пустой
