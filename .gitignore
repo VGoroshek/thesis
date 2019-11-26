@@ -3,5 +3,7 @@
 ################################################################################
 
 /.vs
-/TestConsoleApp/bin/Debug/netcoreapp3.0
+/TestConsoleApp/bin
 /TestConsoleApp/obj
+/PowerSetLibrary/bin
+/PowerSetLibrary/obj
