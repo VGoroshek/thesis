@@ -34,6 +34,8 @@
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -47,6 +49,7 @@
       "type": "package",
       "path": "netstandard.library/2.0.3",
       "files": [
+        ".nupkg.metadata",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/NETStandard.Library.targets",
@@ -176,23 +179,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shosyk\\.nuget\\packages\\": {},
+    "C:\\Users\\Kathy D\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shosyk\\Source\\Repos\\thesis\\PowerSetLibrary\\PowerSetLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\Kathy D\\thesis\\PowerSetLibrary\\PowerSetLibrary.csproj",
       "projectName": "PowerSetLibrary",
-      "projectPath": "C:\\Users\\Shosyk\\Source\\Repos\\thesis\\PowerSetLibrary\\PowerSetLibrary.csproj",
-      "packagesPath": "C:\\Users\\Shosyk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shosyk\\Source\\Repos\\thesis\\PowerSetLibrary\\obj\\",
+      "projectPath": "C:\\Users\\Kathy D\\thesis\\PowerSetLibrary\\PowerSetLibrary.csproj",
+      "packagesPath": "C:\\Users\\Kathy D\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kathy D\\thesis\\PowerSetLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Shosyk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kathy D\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -224,16 +227,10 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
   }
