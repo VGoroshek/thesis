@@ -17,17 +17,19 @@ namespace TestConsoleApp
                 new MyTestClass(3),
                 new MyTestClass(4)
             };
+            
             Stopwatch sw = Stopwatch.StartNew();//Засекаем время выполнения
             MyTestClass[][] result = PSLibraryFile.FastPowerSet(testArr);//Выполняем
             sw.Stop();
             //Вывод результатов
             Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);//Пример форматированного вывода
             for(int i = 0; i< result.Length;i++)
-                Console.WriteLine(String.Join(',', result[i].Select(r => r.Id).ToArray()));//Для вывода используем конкатенацию, для преобразования числа в строку используем лямбда выражения
-            //Лямбда-выражения - элементы функционального программирования в процедурных языках,
+                Console.WriteLine(String.Join(',', result[i].Select(r => r.Id).ToArray()));
+            //Для вывода используем конкатенацию, для преобразования числа в строку используем лямбда выражения
             //В C# этот раздел называется LINQ, в Java - Stream API. В Python, насколько я знаю, тоже есть лямбда-выражения
 
             Console.ReadKey();
+            
         }
     }
 }

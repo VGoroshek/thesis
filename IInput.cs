@@ -4,6 +4,7 @@ namespace IInput
 {
     public interface IInput
     {
-        Boolean CheckInconsistency(IInput seq2);
+        bool CheckInconsistency(IInput seq2);
     }
+
 }
