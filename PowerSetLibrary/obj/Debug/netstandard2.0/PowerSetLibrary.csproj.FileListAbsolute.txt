@@ -24,3 +24,11 @@ C:\Users\Kathy D\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary
 C:\Users\Kathy D\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary.AssemblyInfo.cs
 C:\Users\Kathy D\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary.dll
 C:\Users\Kathy D\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary.pdb
+C:\Users\kate1\source\repos\dagkesamanskaya\thesis\PowerSetLibrary\bin\Debug\netstandard2.0\PowerSetLibrary.deps.json
+C:\Users\kate1\source\repos\dagkesamanskaya\thesis\PowerSetLibrary\bin\Debug\netstandard2.0\PowerSetLibrary.dll
+C:\Users\kate1\source\repos\dagkesamanskaya\thesis\PowerSetLibrary\bin\Debug\netstandard2.0\PowerSetLibrary.pdb
+C:\Users\kate1\source\repos\dagkesamanskaya\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary.AssemblyInfoInputs.cache
+C:\Users\kate1\source\repos\dagkesamanskaya\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary.AssemblyInfo.cs
+C:\Users\kate1\source\repos\dagkesamanskaya\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary.dll
+C:\Users\kate1\source\repos\dagkesamanskaya\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary.pdb
+C:\Users\kate1\source\repos\dagkesamanskaya\thesis\PowerSetLibrary\obj\Debug\netstandard2.0\PowerSetLibrary.csprojAssemblyReference.cache
