@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace PowerSetLibrary
-    {
+{
     public class PSLibraryFile
     {
 
@@ -14,14 +14,14 @@ namespace PowerSetLibrary
             for (int i = 0; i < seq.Length; i++)
             {
 
-                for (int j = i+1; j < seq.Length; j++)
+                for (int j = i + 1; j < seq.Length; j++)
                 {
                     if (seq[i].CheckInconsistency(seq[j]))
                     {
                         List<T> temptuple = new List<T>() { seq[i], seq[j] };
                         TuplesList.Add(temptuple);
                     }
-                  
+
                 }
             }
             return TuplesList;
@@ -50,48 +50,56 @@ namespace PowerSetLibrary
         }
 
 
-            // убрать перестановки?
-            // сделать 4, 5, 6-элементные массивы...
+        // убрать перестановки?
+        // сделать 4, 5, 6-элементные массивы...
 
-        public static List<List<T>> createStrSubsets<T> (T[] seq, List<List<T>>  TupleList ) where T: IInput
-            {
+        public static List<List<T>> CreateStrSubsets<T>(T[] seq, List<List<T>> TupleList) where T : IInput {
             List<List<T>> StrSubsets = new List<List<T>>();
-            
+            List<List<T>> Check = TupleList;
             StrSubsets.AddRange(TupleList);
-                for(int i = 0; i < TupleList.Count; i++)
-                {
-                    for(int j = 0; j < seq.Length; j++)
-                    {
-                    bool flag = true;
-                    for (int k = 0; k < TupleList[i].Count; k++)
-                        {
-                            if(TupleList[i][k].Equals(seq[j]))
-                            {
-                                flag = false;
-                                break;
-                            }                            
-                            if (TupleList[i][k].CheckInconsistency(seq[j]))
-                            { 
-                                continue;
-                            }
-                           
-                            flag = false;
+            for (int i = 0; i < TupleList.Count; i++) {
+                for (int j = 0; j < seq.Length; j++) {  //3
+                    bool checkInc = true;
+                    bool alreadyElem = false;                    
+
+                    for (int k = 0; k < TupleList[i].Count; k++) //1
+                    { 
+
+                        if (TupleList[i][k].Equals(seq[j])) { //false
+                            alreadyElem = true;
                             break;
                         }
-                        if (flag)
+                        List<T> elem = new List<T>();
+                        elem.Add(TupleList[i][k]);
+                        elem.Add(seq[j]);
+                        //проверка, есть ли уже в исходном списке пар 
+                        //(а дальше и исходном списке списков n-непротиворечивых эл-тов проще, 
+                        //чем перебор каждого с каждым
+                        //т.е. вместо
+                        //if (TupleList[i][k].CheckInconsistency(seq[j])) {//true
+                        //    continue;
+                        //}
+                        //вот это
+                        if (Check.Contains(elem))
                         {
-                            List<T> TuplesList1 = new List<T>(TupleList[i]);
-                            TuplesList1.Add(seq[j]);   
-                            StrSubsets.Add(TuplesList1);
+                            continue;
                         }
-
+                        //но оно не работает
+                        
+                        checkInc = false;
                     }
-
+                    if (checkInc && !alreadyElem) {
+                        List<T> TuplesList1 = new List<T>(TupleList[i]);
+                        TuplesList1.Add(seq[j]);
+                        StrSubsets.Add(TuplesList1);
+                    }
                 }
 
-            return StrSubsets;
             }
+
+                return StrSubsets;
+        }
     }
-    }
+}
 
 //или сделать метакласс-компаратор

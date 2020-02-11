@@ -16,6 +16,8 @@ namespace TestConsoleApp
 
         public bool CheckInconsistency(IInput seq2)
         {
+            return true;
+            /*
             MyTestClass other = seq2 as MyTestClass;
             if ((other.Id % 2  == 0) && (this.Id % 2 == 0))
             {
