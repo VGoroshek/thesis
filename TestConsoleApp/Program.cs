@@ -15,10 +15,20 @@ namespace TestConsoleApp
                 new MyTestClass(1),
                 new MyTestClass(2),
                 new MyTestClass(3),
-                new MyTestClass(4)
-                //,
-                //new MyTestClass(5),
-                //new MyTestClass(6)
+                new MyTestClass(4),
+                new MyTestClass(5),
+                new MyTestClass(6),
+                new MyTestClass(7),
+                new MyTestClass(8),
+                new MyTestClass(9),
+                new MyTestClass(10),
+                new MyTestClass(11),
+                new MyTestClass(12),
+                new MyTestClass(13),
+                new MyTestClass(14),
+                new MyTestClass(15),
+                new MyTestClass(16)
+
             };
             
             Stopwatch sw = Stopwatch.StartNew();//Засекаем время выполнения

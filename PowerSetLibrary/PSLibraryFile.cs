@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace PowerSetLibrary
@@ -49,57 +50,69 @@ namespace PowerSetLibrary
             return powerSet;
         }
 
+        public static bool CheckInList<T>(T el1, T el2, List<List<T>> seq)
+        {
 
-        // убрать перестановки?
-        // сделать 4, 5, 6-элементные массивы...
+            return seq.Exists(listT => listT[0].Equals(el1) && listT[1].Equals(el2));
+        }
 
-        public static List<List<T>> CreateStrSubsets<T>(T[] seq, List<List<T>> TupleList) where T : IInput {
+        //почему не заходит в итерацию по трехэлементным
+
+        public static List<List<T>> RecStrSubSets<T>(T[] seq, List<List<T>> Pairs, List<List<T>> Sets)
+        {
             List<List<T>> StrSubsets = new List<List<T>>();
-            List<List<T>> Check = TupleList;
-            StrSubsets.AddRange(TupleList);
-            for (int i = 0; i < TupleList.Count; i++) {
-                for (int j = 0; j < seq.Length; j++) {  //3
+            for (int i = 0; i < Sets.Count; i++)
+            {
+                for (int j = 0; j < seq.Length; j++)
+                {
                     bool checkInc = true;
-                    bool alreadyElem = false;                    
+                    bool alreadyElem = false;
 
-                    for (int k = 0; k < TupleList[i].Count; k++) //1
-                    { 
+                    for (int k = 0; k < Sets[i].Count; k++)
+                    {
 
-                        if (TupleList[i][k].Equals(seq[j])) { //false
+                        if (Sets[i][k].Equals(seq[j]))
+                        {
                             alreadyElem = true;
                             break;
                         }
                         List<T> elem = new List<T>();
-                        elem.Add(TupleList[i][k]);
+                        elem.Add(Sets[i][k]);
                         elem.Add(seq[j]);
-                        //проверка, есть ли уже в исходном списке пар 
-                        //(а дальше и исходном списке списков n-непротиворечивых эл-тов проще, 
-                        //чем перебор каждого с каждым
-                        //т.е. вместо
-                        //if (TupleList[i][k].CheckInconsistency(seq[j])) {//true
-                        //    continue;
-                        //}
-                        //вот это
-                        if (Check.Contains(elem))
+
+
+                        if (CheckInList(Sets[i][k], seq[j], Pairs))
                         {
                             continue;
                         }
-                        //но оно не работает
-                        
+
                         checkInc = false;
                     }
-                    if (checkInc && !alreadyElem) {
-                        List<T> TuplesList1 = new List<T>(TupleList[i]);
-                        TuplesList1.Add(seq[j]);
+                    if (checkInc && !alreadyElem)
+                    {
+                        List<T> TuplesList1 = new List<T>(Sets[i]);
+                        TuplesList1.Add(seq[j]); //???
                         StrSubsets.Add(TuplesList1);
                     }
                 }
 
             }
-
+            if (StrSubsets.Count == 0)
                 return StrSubsets;
+            StrSubsets.AddRange(RecStrSubSets(seq, Pairs, StrSubsets));
+
+            return StrSubsets;
+        }
+
+
+        public static List<List<T>> CreateStrSubsets<T>(T[] seq, List<List<T>> TupleList) where T : IInput
+        {
+            List<List<T>> StrSubsets = new List<List<T>>();
+            StrSubsets = RecStrSubSets(seq, TupleList, TupleList);
+            return StrSubsets;
         }
     }
+
 }
 
 //или сделать метакласс-компаратор
