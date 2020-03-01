@@ -50,7 +50,7 @@ namespace PowerSetLibrary
             return powerSet;
         }
 
-        public static bool CheckInList<T>(T el1, T el2, List<List<T>> seq)
+        private static bool CheckInList<T>(T el1, T el2, List<List<T>> seq)
         {
 
             return seq.Exists(listT => listT[0].Equals(el1) && listT[1].Equals(el2));
@@ -58,7 +58,7 @@ namespace PowerSetLibrary
 
         //почему не заходит в итерацию по трехэлементным
 
-        public static List<List<T>> RecStrSubSets<T>(T[] seq, List<List<T>> Pairs, List<List<T>> Sets)
+        private static List<List<T>> RecStrSubSets<T>(T[] seq, List<List<T>> Pairs, List<List<T>> Sets)
         {
             List<List<T>> StrSubsets = new List<List<T>>();
             for (int i = 0; i < Sets.Count; i++)

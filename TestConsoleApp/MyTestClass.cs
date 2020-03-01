@@ -18,6 +18,8 @@ namespace TestConsoleApp
         {
             //непротиворечивость - если одинаковая четность
             MyTestClass other = seq2 as MyTestClass;
+            if ((other.Id % 4 == 1) && (Id % 4 == 1))
+                return true;
             if ((other.Id % 2  == 0) && (this.Id % 2 == 0))
             {
                 return true;

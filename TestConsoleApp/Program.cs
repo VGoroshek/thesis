@@ -19,7 +19,7 @@ namespace TestConsoleApp
                 new MyTestClass(5),
                 new MyTestClass(6),
                 new MyTestClass(7),
-                new MyTestClass(8),
+                new MyTestClass(8)/*,
                 new MyTestClass(9),
                 new MyTestClass(10),
                 new MyTestClass(11),
@@ -27,7 +27,7 @@ namespace TestConsoleApp
                 new MyTestClass(13),
                 new MyTestClass(14),
                 new MyTestClass(15),
-                new MyTestClass(16)
+                new MyTestClass(16)*/
 
             };
             
@@ -41,10 +41,11 @@ namespace TestConsoleApp
             Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);//Пример форматированного вывода
             //for(int i = 0; i< result.Length;i++)
             //    Console.WriteLine(String.Join(',', result[i].Select(r => r.Id).ToArray()));
-            //Console.WriteLine();
+            Console.WriteLine("Tuples");
             for (int i = 0; i < res1.Count; i++)
                 Console.WriteLine(String.Join(',', res1[i].Select(r => r.Id).ToArray()));
             Console.WriteLine();
+            Console.WriteLine("Result");
             for (int i = 0; i < result1.Count; i++)
                 Console.WriteLine(String.Join(',', result1[i].Select(r => r.Id).ToArray()));
             //Для вывода используем конкатенацию, для преобразования числа в строку используем лямбда выражения
