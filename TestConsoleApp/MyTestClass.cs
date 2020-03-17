@@ -16,10 +16,15 @@ namespace TestConsoleApp
 
         public bool CheckInconsistency(IInput seq2)
         {
-            //непротиворечивость - если одинаковая четность
+            
             MyTestClass other = seq2 as MyTestClass;
-            if ((other.Id % 4 == 1) && (Id % 4 != 1) || (other.Id % 4 != 1) && (Id % 4 == 1))
-                return false;
+            ///деление на 4
+            if ((other.Id % 4 == 0) && (Id % 4 == 0) || (other.Id % 4 != 0) && (Id % 4 != 0))
+                return true;
+            else return false;
+
+            /*
+            ///непротиворечивость - если одинаковая четность
             if ((other.Id % 2  == 0) && (this.Id % 2 == 0))
             {
                 return true;
@@ -29,7 +34,10 @@ namespace TestConsoleApp
                 return true;
             }
             return false;
+            */
+
             /*
+            ///случайный выбор непротиворечивости
                 Random random = new Random();
             int randomNumber = random.Next(0, 1000);
             if (randomNumber%2 == 0) return true;
