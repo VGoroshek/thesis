@@ -4,8 +4,12 @@ using System.Collections.Generic;
 
 namespace PowerSetLibrary
 {
+
     public class PSLibraryFile
     {
+
+
+        // переделать на tuples
         public static List<List<T>> CreateTuples<T>(T[] seq) where T : IInput
         {
             List<List<T>> TuplesList = new List<List<T>>();
@@ -79,11 +83,11 @@ namespace PowerSetLibrary
         }
 
 
-        public static List<List<T>> CreateStrSubsets<T>(T[] seq, List<List<T>> TupleList) where T : IInput
+        public static List<T> CreateStrSubsets<T>(T[] seq, List<List<T>> TupleList) where T : IInput
         {
             List<List<T>> StrSubsets = new List<List<T>>();
             StrSubsets = RecStrSubSets(seq, TupleList, TupleList);
-            return StrSubsets;
+            return StrSubsets.Last();
         }
     }
 

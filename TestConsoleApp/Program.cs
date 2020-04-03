@@ -46,8 +46,14 @@ namespace TestConsoleApp
                 Console.WriteLine(String.Join(',', res1[i].Select(r => r.Id).ToArray()));
             Console.WriteLine();
             Console.WriteLine("Result");
+            Console.WriteLine(String.Join(',', result1.Select(r => r.Id).ToArray()));
+           
+            /*//для случая вывода всех множеств
+            
             for (int i = 0; i < result1.Count; i++)
                 Console.WriteLine(String.Join(',', result1[i].Select(r => r.Id).ToArray()));
+                */
+
             //Для вывода используем конкатенацию, для преобразования числа в строку используем лямбда выражения
             //В C# этот раздел называется LINQ, в Java - Stream API. В Python, насколько я знаю, тоже есть лямбда-выражения
 
