@@ -38,16 +38,18 @@ namespace TestConsoleApp
 
             sw.Stop();
             //Вывод результатов
-            Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);//Пример форматированного вывода
-            //for(int i = 0; i< result.Length;i++)
-            //    Console.WriteLine(String.Join(',', result[i].Select(r => r.Id).ToArray()));
+            Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
+
+            /*//Вывод пар
             Console.WriteLine("Tuples");
             for (int i = 0; i < res1.Count; i++)
                 Console.WriteLine(String.Join(',', res1[i].Select(r => r.Id).ToArray()));
             Console.WriteLine();
+            */
             Console.WriteLine("Result");
             Console.WriteLine(String.Join(',', result1.Select(r => r.Id).ToArray()));
            
+
             /*//для случая вывода всех множеств
             
             for (int i = 0; i < result1.Count; i++)

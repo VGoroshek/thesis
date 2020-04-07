@@ -44,5 +44,14 @@ namespace TestConsoleApp
             else return false;
             */
         }
+
+        public List<IInput> GetChildren()
+        {
+            return null;
+        }
+        public List<IInput> GetParents()
+        {
+            return null;
+        }
     }
 }
