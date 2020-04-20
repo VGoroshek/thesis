@@ -12,53 +12,23 @@ namespace TestConsoleApp
             //Создаем тестовый массив
             MyTestClass[] testArr = new MyTestClass[]
             {
-                new MyTestClass(1),
-                new MyTestClass(2),
-                new MyTestClass(3),
-                new MyTestClass(4),
-                new MyTestClass(5),
-                new MyTestClass(6),
+                new MyTestClass(8),
                 new MyTestClass(7),
-                new MyTestClass(8)/*,
-                new MyTestClass(9),
-                new MyTestClass(10),
-                new MyTestClass(11),
-                new MyTestClass(12),
-                new MyTestClass(13),
-                new MyTestClass(14),
-                new MyTestClass(15),
-                new MyTestClass(16)*/
-
+                new MyTestClass(6),
+                new MyTestClass(5),
+                new MyTestClass(4),
+                new MyTestClass(3),
+                new MyTestClass(2),
+                new MyTestClass(1)
             };
-            
+
             Stopwatch sw = Stopwatch.StartNew();//Засекаем время выполнения
-            //MyTestClass[][] result = PSLibraryFile.FastPowerSet(testArr);//Выполняем
-            var res1 = PSLibraryFile.CreateTuples(testArr);
-            var result1 = PSLibraryFile.CreateStrSubsets(testArr, res1);
-
+            var comp = PSLibraryFile.CreateComponents(testArr);
             sw.Stop();
-            //Вывод результатов
+            //Вывод времени выполнения
             Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
-
-            /*//Вывод пар
-            Console.WriteLine("Tuples");
-            for (int i = 0; i < res1.Count; i++)
-                Console.WriteLine(String.Join(',', res1[i].Select(r => r.Id).ToArray()));
-            Console.WriteLine();
-            */
-            Console.WriteLine("Result");
-            Console.WriteLine(String.Join(',', result1.Select(r => r.Id).ToArray()));
-           
-
-            /*//для случая вывода всех множеств
-            
-            for (int i = 0; i < result1.Count; i++)
-                Console.WriteLine(String.Join(',', result1[i].Select(r => r.Id).ToArray()));
-                */
-
-            //Для вывода используем конкатенацию, для преобразования числа в строку используем лямбда выражения
-            //В C# этот раздел называется LINQ, в Java - Stream API. В Python, насколько я знаю, тоже есть лямбда-выражения
-
+            for (int i = 0; i < comp.Count; i++)
+                Console.WriteLine(String.Join(',', comp[i].Select(r => r.Id).ToArray()));
             Console.ReadKey();
             
         }

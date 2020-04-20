@@ -4,6 +4,6 @@ public interface IInput
 {
     Boolean CheckInconsistency(IInput seq2);
 
-    List<IInput> GetChildren();
-    List<IInput> GetParents();
+    Boolean? IsWeaker(IInput seq2);
+
 }

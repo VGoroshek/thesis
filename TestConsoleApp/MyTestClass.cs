@@ -14,27 +14,20 @@ namespace TestConsoleApp
             Id = num;
         }
 
-        public bool CheckInconsistency(IInput seq2)
+        public Boolean CheckInconsistency(IInput seq2)
         {
-            
             MyTestClass other = seq2 as MyTestClass;
             ///деление на 4
-            if ((other.Id % 4 == 0) && (Id % 4 == 0) || (other.Id % 4 != 0) && (Id % 4 != 0))
+            if ((other.Id % 4 == 1) && (Id % 4 == 1))
                 return true;
-            else return false;
-
-            /*
             ///непротиворечивость - если одинаковая четность
             if ((other.Id % 2  == 0) && (this.Id % 2 == 0))
             {
                 return true;
             }
-            if ((other.Id % 2 != 0) && (this.Id % 2 != 0))
-            {
-                return true;
-            }
+
             return false;
-            */
+            
 
             /*
             ///случайный выбор непротиворечивости
@@ -45,13 +38,16 @@ namespace TestConsoleApp
             */
         }
 
-        public List<IInput> GetChildren()
+        public Boolean? IsWeaker(IInput seq2)
         {
+            /*
+            Random random = new Random();
+            int randomNumber = random.Next(0, 2);
+            if (randomNumber == 0) return true;
+            if (randomNumber == 1) return false;
+            */
             return null;
         }
-        public List<IInput> GetParents()
-        {
-            return null;
-        }
+
     }
 }
