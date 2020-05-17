@@ -29,6 +29,17 @@ namespace TestConsoleApp
             Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
             for (int i = 0; i < comp.Count; i++)
                 Console.WriteLine(String.Join(',', comp[i].Select(r => r.Id).ToArray()));
+            Console.WriteLine();
+            //STRONGLY
+
+
+            var compS = PSLibraryFile.CreateStrongComponents(testArr);
+            sw.Stop();
+            //Вывод времени выполнения
+            Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
+            for (int i = 0; i < compS.Count; i++)
+                Console.WriteLine(String.Join(',', compS[i].Select(r => r.Id).ToArray()));
+
             Console.ReadKey();
             
         }

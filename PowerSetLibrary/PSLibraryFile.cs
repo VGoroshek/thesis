@@ -35,7 +35,7 @@ namespace PowerSetLibrary
                     bool checkInc = (seq[i].CheckInconsistency(seq[j]));
                     if (checkInc)
                     {
-                        g.addEdge(i, j);
+                        g.addEdgeUndir(i, j);
                     }
 
                 }
@@ -45,6 +45,33 @@ namespace PowerSetLibrary
 
 
             return graphToStrategies(g.connectedComponents(), seq);
+
+        }
+
+        public static List<List<T>> CreateStrongComponents<T>(T[] seq) where T : IInput
+        {
+            List<List<T>> ComponentsList = new List<List<T>>();
+
+            Graph g = new Graph(seq.Length); //isWeaker
+            //проверять, если один сильнее другого, то 
+            for (int i = 0; i < seq.Length; i++)
+            {
+
+                for (int j = i + 1; j < seq.Length; j++)
+                {
+                    bool checkInc = (seq[i].CheckInconsistency(seq[j]));
+                    if (checkInc)
+                    {
+                        g.addEdgeDir(i, j);
+                    }
+
+                }
+
+                //bool? isWeaker = seq[i].IsWeaker(seq[j]);
+            }
+
+
+            return graphToStrategies(g.stronglyConnectedComponents(), seq);
 
         }
     }

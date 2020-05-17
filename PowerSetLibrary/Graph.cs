@@ -1,6 +1,7 @@
 ﻿// C# program to print connected components in  
 // an undirected graph  
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace PowerSetLibrary
@@ -34,7 +35,7 @@ namespace PowerSetLibrary
         }
 
         // Adds an edge to an undirected graph 
-        public void addEdge(int src, int dest)
+        public void addEdgeUndir(int src, int dest)
         {
             // Add an edge from src to dest. 
             adjListArray[src].Add(dest);
@@ -43,6 +44,13 @@ namespace PowerSetLibrary
             // to src also 
             adjListArray[dest].Add(src);
         }
+
+        public void addEdgeDir(int src, int dest)
+        {
+            // Add an edge from src to dest. 
+            adjListArray[src].Add(dest);
+        }
+
 
         public List<int> DFS(int v, bool[] visited, List<int> newComponent)
         {
@@ -59,6 +67,35 @@ namespace PowerSetLibrary
 
             return newComponent;
         }
+
+        Graph GetTranspose()
+        {
+            Graph g = new Graph(V);
+            for (int v = 0; v < V; v++)
+            {
+                foreach (int x in adjListArray[v])
+                {
+                    g.addEdgeDir(v, x);
+                }
+            }
+            return g;
+        }
+
+        void fillOrder(int v, Boolean [] visited, Stack<int> stack)
+        {
+            visited[v] = true;
+            foreach (int x in adjListArray[v])
+            {
+                if (!visited[x])
+                {
+                    fillOrder(x, visited, stack);
+                }
+            }
+
+            stack.Push(v);
+        }
+
+
         public List<List<int>> connectedComponents()
         {
             // Mark all the vertices as not visited 
@@ -72,6 +109,46 @@ namespace PowerSetLibrary
                     // print all reachable vertices 
                     // from v 
                     res.Add(DFS(v, visited, newComponent));
+                }
+            }
+
+            return res;
+        }
+
+        public List<List<int>> stronglyConnectedComponents()
+        {
+            Stack<int> stack = new Stack<int>();
+            List<List<int>> res = new List<List<int>>();
+
+            // Mark all the vertices as not visited  (for the first DFS)
+            bool[] visited = new bool[V];
+            for (int i = 0; i<V; i++)
+            {
+                visited[i] = false;
+            }
+
+            for (int i = 0; i < V; i++)
+                if (visited[i] == false)
+                {
+                    fillOrder(i, visited, stack);
+                }
+
+            Graph gr = GetTranspose();
+
+            for (int i = 0; i < V; i++)
+                visited[i] = false;
+
+            // Now process all vertices in order defined by Stack 
+            while (stack.Count !=0)
+            {
+                // Pop a vertex from stack 
+                int v = (int)stack.Pop();
+
+                // Print Strongly connected component of the popped vertex 
+                if (visited[v] == false)
+                {
+                    List<int> newComponent = new List<int>();
+                    res.Add(gr.DFS(v, visited, newComponent));
                 }
             }
 
