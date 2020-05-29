@@ -122,6 +122,7 @@ namespace PowerSetLibrary
             g.search();
 
             int[] clique = g.solution;
+            Console.WriteLine("[{0}]", string.Join(", ", clique));
 
             return cliqueToStrategies(clique, seq);
         }
