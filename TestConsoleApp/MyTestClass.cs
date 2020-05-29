@@ -40,12 +40,8 @@ namespace TestConsoleApp
 
         public Boolean? IsWeaker(IInput seq2)
         {
-            /*
-            Random random = new Random();
-            int randomNumber = random.Next(0, 2);
-            if (randomNumber == 0) return true;
-            if (randomNumber == 1) return false;
-            */
+            if (Id % 3 == 0) 
+                return true;
             return null;
         }
 
