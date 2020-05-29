@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace PowerSetLibrary
 {
 
-    public class PSLibraryFile
+    public class Algorithms
     { 
         public static List<List<T>> graphToStrategies<T>(List<List<int>> comp, T[] seq) where T : IInput
         {

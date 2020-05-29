@@ -31,7 +31,7 @@ namespace TestConsoleApp
             };
 
             Stopwatch sw = Stopwatch.StartNew();//Засекаем время выполнения
-            var comp = PSLibraryFile.CreateComponents(testArr);
+            var comp = Algorithms.CreateComponents(testArr);
             sw.Stop();
             //Вывод времени выполнения
             Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
@@ -41,7 +41,7 @@ namespace TestConsoleApp
             //STRONGLY
 
             sw = Stopwatch.StartNew();
-            var compS = PSLibraryFile.CreateStrongComponents(testArr);
+            var compS = Algorithms.CreateStrongComponents(testArr);
             sw.Stop();
             //Вывод времени выполнения
             Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
@@ -51,7 +51,7 @@ namespace TestConsoleApp
             Console.WriteLine();
             Console.WriteLine("Clique");
             sw = Stopwatch.StartNew();//Засекаем время выполнения
-            var MaxClique = PSLibraryFile.MaxClique(testArr);
+            var MaxClique = Algorithms.MaxClique(testArr);
             sw.Stop();
             //Вывод времени выполнения
             Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
