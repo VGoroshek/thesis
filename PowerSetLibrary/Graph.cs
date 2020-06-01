@@ -19,10 +19,7 @@ namespace PowerSetLibrary
         int[] degree;
         int maxSize;          //  size of max clique
         public int[] solution;       //  as it says
-        int nodes;
-        int timeLimit;
-        int cpuTime;
-        int style;
+
         // constructor 
         public Graph(int V)
         {
@@ -48,7 +45,6 @@ namespace PowerSetLibrary
 
             this.maxSize = 0;
             this.solution = new int[V];
-            this.style = 1;
         }
 
         // Adds an edge to an undirected graph 
@@ -85,9 +81,6 @@ namespace PowerSetLibrary
 
         void expand(List<int> C, List<int> P)
         {
-            if (timeLimit > 0 && DateTime.Now.Millisecond - cpuTime >= timeLimit)
-                return;
-            nodes++;
             for (int i = P.Count - 1; i >= 0; i--)
             {
                 if (C.Count + P.Count <= maxSize) return;
@@ -96,23 +89,21 @@ namespace PowerSetLibrary
 
                 C.Add(v);
 
-                List<int> newP = new List<int>();
+                List<int> newP = new List<int>(i);
 
-                foreach(int w in P) 
+                for (int j = 0; j <= i; j++)
                 {
-                    //int w = P.ElementAt(j);
+                    int w = P.ElementAt(j);
                     if ((adjListArray[v].Contains(w)))
                     {
                         newP.Add(w);
                     }
                 }
 
-                if (newP.Count == 0 && C.Count() > maxSize) 
-                    saveSolution(C);
-                if (newP.Count > 0) 
-                    expand(C, newP);
-                C.Remove(v);
-                P.Remove(v);
+                if (newP.Count == 0 && C.Count() > maxSize) saveSolution(C);
+                if (newP.Count > 0) expand(C, newP);
+                C.Remove(C.Count - 1);
+                P.Remove(i);
             }
         }
 
