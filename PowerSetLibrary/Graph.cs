@@ -16,25 +16,19 @@ namespace PowerSetLibrary
         // in graph) 
         int V;
         List<int>[] adjListArray;
-        //int[] degree;
+        int[] degree;
         int maxSize;          //  size of max clique
         public int[] solution;       //  as it says
-        int nodes;
-        int timeLimit;
-        int cpuTime;
-        int style;
+
         // constructor 
         public Graph(int V)
         {
             this.V = V;
-            this.maxSize = 0;
-            this.solution = new int[V];
+
             // define the size of array as 
             // number of vertices 
-            this.adjListArray = new List<int>[V];
-            this.nodes =  0;
-            this.cpuTime = this.timeLimit = -1;
-            this.style = 1;
+            adjListArray = new List<int>[V];
+
             // Create a new list for each vertex 
             // such that adjacent nodes can be stored 
 
@@ -43,15 +37,14 @@ namespace PowerSetLibrary
                 adjListArray[i] = new List<int>();
             }
 
-            /*
             degree = new int[V];
             for (int i = 0; i < V; i++)
             {
                 degree[i] = 0;
             }
-            */
 
-            
+            this.maxSize = 0;
+            this.solution = new int[V];
         }
 
         // Adds an edge to an undirected graph 
@@ -59,25 +52,23 @@ namespace PowerSetLibrary
         {
             // Add an edge from src to dest. 
             adjListArray[src].Add(dest);
-            //degree[src] += 1;
+            degree[src] += 1;
             // Since graph is undirected, add an edge from dest 
             // to src also 
             adjListArray[dest].Add(src);
-            //degree[dest] += 1;
+            degree[dest] += 1;
         }
 
         public void addEdgeDir(int src, int dest)
         {
             // Add an edge from src to dest. 
             adjListArray[src].Add(dest);
-            //degree[src] += 1;
+            degree[src] += 1;
         }
 
         
         public void search()
         {
-            cpuTime = DateTime.Now.Millisecond;
-            nodes = 0;
             List<int> C = new List<int>();
             List<int> P = new List<int>(V);
             for (int i = 0; (i < this.V); i++)
@@ -90,8 +81,6 @@ namespace PowerSetLibrary
 
         void expand(List<int> C, List<int> P)
         {
-            if (timeLimit > 0 && DateTime.Now.Millisecond - cpuTime >= timeLimit) 
-                return;
             for (int i = P.Count - 1; i >= 0; i--)
             {
                 if (C.Count + P.Count <= maxSize) return;
@@ -102,18 +91,18 @@ namespace PowerSetLibrary
 
                 List<int> newP = new List<int>(i);
 
-                foreach (int w in P)
+                for (int j = 0; j <= i; j++)
                 {
+                    int w = P.ElementAt(j);
                     if ((adjListArray[v].Contains(w)))
                     {
                         newP.Add(w);
                     }
-                    
                 }
-                
+
                 if (newP.Count == 0 && C.Count() > maxSize) saveSolution(C);
                 if (newP.Count > 0) expand(C, newP);
-                C.Remove(i);
+                C.Remove(C.Count - 1);
                 P.Remove(i);
             }
         }
@@ -128,6 +117,7 @@ namespace PowerSetLibrary
             {
                 this.solution[i] = 1;
             }
+
             this.maxSize = C.Count;
         }
 
