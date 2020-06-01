@@ -112,12 +112,15 @@ namespace PowerSetLibrary
                     bool checkInc = (seq[i].CheckInconsistency(seq[j]));
                     if (checkInc)
                     {
+                        Console.WriteLine("added ", i+1, " ", j+1);
                         g.addEdgeUndir(i, j);
                     }
 
                 }
 
             }
+
+
 
             g.search();
 
